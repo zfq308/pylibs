@@ -4,9 +4,9 @@
 #####astar.py: pathfinding as a generator
 ######Optimizations
 - Manhattan distance used as heuristics.
-- I used a heap-based priority queue instead of a sorted list to provide worst case O(log N) to Insert and removeMax operations.
+- Heap-based priority queue instead of a sorted list to provide worst case O(log N) to Insert and removeMax operations.
 - To avoid clearing nodes at each new search, open and closed values are increased by 2.
-- I stored search intermediary results into tiles (Node class) to remove the Closed list. 
+- Increased memory footprint (Node array) holding local search results into tiles to remove the Closed list (see Node class).
 
 Note: storing intermediary states has the important consequence to constrain concurrency among a set of agents acting in the same world. Below is the study of various patterns working around that constraint.
 
