@@ -17,21 +17,21 @@ iterSearch = astar.search()
             except StopIteration:
                 break
 ```
-The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow and worst: doesn't guarantee a constant framerate.
+The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow (assuming pathing is O(1), and worst: doesn't guarantee a constant framerate.
 ```
-    +         +     +   + + 
-A0: S S S S S P . . P . G S S
-A1: . . . . . S S S P . P . .
-A2: . . . . . . . . S S P . .
+    +     + + + +     + + + +     + + + + 
+A0: S S S P P P G . . . . . . . . . . . S 
+A1: . . . . . . S S S P P P G . . . . . .
+A2: . . . . . . . . . . . . S S S P P P G
 ```
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 ######Interlaced pattern 
 (i.e. reasoning to use a generator)
 ```
-    + + + + + + + + + + + + +
-A0: S S S S S P P P P P P G .
-A1: P P P P P P G S S S S P P
-A2: P P P P P P P G . . . S S
+    + + + + + + + + + + + + + + + +
+A0: S S S P P P G . . S S S P P G .
+A1: . . . S S S P P P G . . S S S P
+A2: . . . . . . S S S P P P G . . S
 ```
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 #####Parallel pathfinding using multiprocessing
