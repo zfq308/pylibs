@@ -1,6 +1,12 @@
 # pylibs
-A* pathfinding as a generator
 
-A* pathfinding using multiprocessing
+###Python A* basics
 
-Ray cast
+####Pathfinding as a generator
+
+####Parallel pathfinding using multiprocessing
+
+####Concurrent pathfinding using a worker pool
+(TODO)
+
+###Ray cast
