@@ -58,8 +58,17 @@ A1: . . . S S S P P P G . . S S S P
 A2: . . . . . . S S S P P P G . . S
 ```
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
-#####Parallel pathfinding using multiprocessing
+
+Ballpark benchmark: 16 ms / search.
+#####astar_par: parallel pathfinding using multiprocessing
+This uses Python's multiprocessing package to offload the sequential processing of searches to other cores. A producer - consumer pattern is used. Seach are represented by Tasks enqueued in a ```JoinableQueue``` then that the main process doesn't need to wait anytime befor to do something else. Results are stored in a managed dictionary where keys are related to tasks. 
+Again, the world object is shared and no concurrency is possible during a search operation.
+
+TODO: locking the world object to synchronize path update and search operations on different processes.
+
+Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
 #####Concurrent pathfinding using a worker pool
+Concurrent search operations require to get back the closed list to store intermediary results per agent. Also, the lock of shared resources (world object) is necessary to prevent any inconsistency when the resource is updated.
 (TODO)
 
 ###raycats: Tile-based Ray casting
