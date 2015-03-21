@@ -27,21 +27,19 @@ A2: . . . . . . . . . . . . S S S P P P G
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 ######Interlaced pattern 
 (i.e. reasoning to use a generator)
+for example with a very simple state machine:
 ```
-    def move(self, dt):
+    def move(self):
         if self.state == 0:
-            self.time -= dt
-            if self.time < 0:
-                goal = self.world.getRandomFreeLocation()
-                self.findPath(self.location, goal, [1])
-                self.state = 1
+             goal = self.world.getRandomFreeLocation()
+             self.findPath(self.location, goal, [1])
+             self.state = 1
         elif self.state == 1:
-            self.path = self.getPathResult()
+            self.path = self.getPath()
             if self.path:
                 self.state = 2
         elif self.state == 2:
-            newPosition = self.path.pop(0)
-            self.setLocation(newPosition)
+            self.location = self.path.pop(0)
             if not self.path:
                 self.state = 0
 ```
