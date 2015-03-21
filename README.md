@@ -1,6 +1,6 @@
 # pylibs
 
-###Python A* basics
+###astar: Python A* basics
 
 ####Pathfinding as a generator
 
@@ -9,4 +9,4 @@
 ####Concurrent pathfinding using a worker pool
 (TODO)
 
-###Ray cast
+###raycats: Ray casting
