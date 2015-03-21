@@ -62,7 +62,7 @@ A2: . . . . . . S S S P P P G . . S
 Ballpark benchmark: 16 ms / search.
 #####astar_par: parallel pathfinding using multiprocessing
 This version uses Python's [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) package to offload the sequential processing of searches to other cores. A producer - consumer pattern is used. Seach are represented by Tasks enqueued in a ```JoinableQueue```. Hence, the main process doesn't need to wait anytime befor to do something else. Results are stored in a managed dictionary where keys are related to tasks. 
-Again, the world object is shared and no concurrency is possible during a search operation.
+Again, the world object is shared and no concurrency is possible during a search operation. However, dynamic operations on the world object may require to acquire a lock on that resource to prevent inconsistencies between the world update and search operations. 
 ```
 def move(self):
     if self.state == 0:
@@ -81,7 +81,6 @@ def move(self):
         if not self.path:
             self.state = 0
 ```
-TODO: locking the world object to synchronize path update and search operations on different processes.
 
 Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
 #####Concurrent pathfinding using a worker pool
