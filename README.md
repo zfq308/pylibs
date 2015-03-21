@@ -2,6 +2,8 @@
 *"oh baby baby, it's a tile world..."*
 ###astar: Python Tile-based A* basics
 #####astar.py: pathfinding as a generator
+######Heuristics
+A simple manhattan distance is used.
 ######Optimizations
 - I used a heap-based priority queue instead of a sorted list to provide worst case O(log N) to Insert and removeMax operations.
 - To avoid clearing nodes at each new search, open and closed values are increased by 2.
