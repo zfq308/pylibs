@@ -29,19 +29,19 @@ A2: . . . . . . . . . . . . S S S P P P G
 (i.e. reasoning to use a generator)
 for example with a very simple state machine:
 ```
-   def move(self):
-        if self.state == 0:
-             goal = self.world.getSomeLocation()
-             self.astar.initSearch(self.location, goal, [obstacles])
-             self.state = 1
-        elif self.state == 1:
-            self.path = self.astar.search()
-            if self.path:
-                self.state = 2
-        elif self.state == 2:
-            self.location = self.path.pop(0)
-            if not self.path:
-                self.state = 0
+def move(self):
+    if self.state == 0:
+         goal = self.world.getSomeLocation()
+         self.astar.initSearch(self.location, goal, [obstacles])
+         self.state = 1
+    elif self.state == 1:
+        self.path = self.astar.search()
+        if self.path:
+            self.state = 2
+    elif self.state == 2:
+        self.location = self.path.pop(0)
+        if not self.path:
+            self.state = 0
 ```
 Note: that example doesn't include synchronization between searches.
 ```
