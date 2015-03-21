@@ -17,7 +17,7 @@ iterSearch = astar.search()
             except StopIteration:
                 break
 ```
-The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow (assuming pathing is O(1), and worst: doesn't guarantee a constant framerate.
+The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow - assuming search time is constant and pathing is O(1). In reality it is worst since search time is variable and then that approach doesn't guarantee a constant framerate.
 ```
     +     + + + +     + + + +     + + + + 
 A0: S S S P P P G . . . . . . . . . . . S 
@@ -43,7 +43,7 @@ for example with a very simple state machine:
             if not self.path:
                 self.state = 0
 ```
-
+Note: that example doesn't include synchronization between searches.
 ```
     + + + + + + + + + + + + + + + +
 A0: S S S P P P G . . S S S P P G .
