@@ -83,8 +83,7 @@ def move(self):
 ```
 
 Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
-#####Concurrent pathfinding using a worker pool
-Concurrent search operations require to get back the closed list to store intermediary results per agent. Also, the lock of shared resources (world object) is necessary to prevent any inconsistency when the resource is updated.
-(TODO)
+#####TODO: Concurrent pathfinding using a worker pool
+Concurrent search operations require to get back the closed list to store intermediary results locally. 
 
 ###raycats: Tile-based Ray casting
