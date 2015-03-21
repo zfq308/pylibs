@@ -26,8 +26,8 @@ A2: . . . . . . . . . . . . S S S P P P G
 ```
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 ######Interlaced pattern 
-It is not trye we need to execute search every frame. To simulate human-like behaviours it is reasonnable to accept a latency that emulate the thinking process. However the motions of an agent shouldn't be blocked by the search operation of other agents. 
-The generator approach allows us not to wait a search is completed to execute behaviours of other agents. Granularity of the serach operation is reduced to neighborhood examination which is exactly in a tile-based world 8 fast operations. However since results are stored in the shared world object, searches cannot be concurrent and must be synchronised. 
+It is not true we need to execute search at every frame. To simulate human-like behaviours it is reasonnable to accept a latency that emulates the thinking process. However the motions of an agent shouldn't be blocked by the search operations of other agents. 
+The generator approach allows us not to wait a search is completed to execute behaviours of other agents. Granularity of the search operation is reduced to neighborhood examination which is exactly 8 fast operations in a tile-based world. However since results are stored in the shared world object, searches cannot be concurrent and must be synchronised. 
 Below is an example with a very simple state machine:
 ```
 def move(self):
