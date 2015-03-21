@@ -11,11 +11,11 @@
 The basic usage of A* is to do a blocking search of a solution (path) in a frame. This is exactly what we do here:
 ```
 iterSearch = astar.search()
-        while True:
-            try:
-                path = iterSearch.next()
-            except StopIteration:
-                break
+while True:
+    try:
+        path = iterSearch.next()
+    except StopIteration:
+        break
 ```
 The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow - assuming search time is constant and pathing is O(1). In reality it is worst since search time is variable and then that approach doesn't guarantee a constant framerate.
 ```
@@ -29,7 +29,7 @@ A2: . . . . . . . . . . . . S S S P P P G
 (i.e. reasoning to use a generator)
 for example with a very simple state machine:
 ```
-    def move(self):
+   def move(self):
         if self.state == 0:
              goal = self.world.getSomeLocation()
              self.astar.initSearch(self.location, goal, [obstacles])
