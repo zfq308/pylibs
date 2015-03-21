@@ -28,6 +28,25 @@ A2: . . . . . . . . . . . . S S S P P P G
 ######Interlaced pattern 
 (i.e. reasoning to use a generator)
 ```
+    def move(self, dt):
+        if self.state == 0:
+            self.time -= dt
+            if self.time < 0:
+                goal = self.world.getRandomFreeLocation()
+                self.findPath(self.location, goal, [1])
+                self.state = 1
+        elif self.state == 1:
+            self.path = self.getPathResult()
+            if self.path:
+                self.state = 2
+        elif self.state == 2:
+            newPosition = self.path.pop(0)
+            self.setLocation(newPosition)
+            if not self.path:
+                self.state = 0
+```
+
+```
     + + + + + + + + + + + + + + + +
 A0: S S S P P P G . . S S S P P G .
 A1: . . . S S S P P P G . . S S S P
