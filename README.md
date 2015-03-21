@@ -87,3 +87,4 @@ Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
 Concurrent search operations require to get back the closed list to store intermediary results locally. 
 
 ###raycats: Tile-based Ray casting
+Two different methods to test visibility in a tile world.
