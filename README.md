@@ -1,7 +1,7 @@
 # pylibs
 *"oh baby baby, it's a tile world..."*
 ###astar: Python Tile-based A* basics
-#####Pathfinding as a generator
+#####astar.py: pathfinding as a generator
 ######Optimizations
 - I used a heap-based priority queue to provide O(log N) to Insert and removeMax operations (worst case)
 - To avoid clearing nodes at each new search, open and closed values are increased by 2
@@ -60,7 +60,7 @@ A2: . . . . . . S S S P P P G . . S
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 
 Ballpark benchmark: 16 ms / search.
-#####astar_par: parallel pathfinding using multiprocessing
+#####astar_par.py: parallel pathfinding using multiprocessing
 This version uses Python's [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) package to offload the sequential processing of searches to other cores. A producer - consumer pattern is used. Seach are represented by Tasks enqueued in a ```JoinableQueue```. Hence, the main process doesn't need to wait anytime befor to do something else. Results are stored in a managed dictionary where keys are related to tasks. 
 Again, the world object is shared and no concurrency is possible during a search operation. However, dynamic operations on the world object may require to acquire a lock on that resource to prevent inconsistencies between the world update and search operations. 
 ```
