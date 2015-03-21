@@ -19,7 +19,7 @@ while True:
     except StopIteration:
         break
 ```
-The resut is that it is often the case that a Search operation takes time, and then it stalls a frame. Below is a diagram showing how that approach is slow - assuming search time is constant and pathing is O(1). In reality it is worst since search time is variable and then that approach doesn't guarantee a constant framerate.
+It is often the case that a Search operation takes time, and then impact significantly the frame rate. Below is a diagram showing how that approach sucks - assuming search time is constant and pathing is O(1). In reality it is even worst since search time is variable and then that approach doesn't guarantee a constant framerate.
 ```
     +     + + + +     + + + +     + + + + 
 A0: S S S P P P G . . . . . . . . . . . S 
@@ -86,5 +86,5 @@ Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
 #####TODO: Concurrent pathfinding using a worker pool
 Concurrent search operations require to get back the closed list to store intermediary results locally. 
 
-###raycats: Tile-based Ray casting
+###raycast: Tile-based ray casting
 Two different methods to test visibility in a tile world.
