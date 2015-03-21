@@ -3,7 +3,7 @@
 ###astar: Python Tile-based A* basics
 #####astar.py: pathfinding as a generator
 ######Optimizations
-- I used a heap-based priority queue to provide O(log N) to Insert and removeMax operations (worst case)
+- I used a heap-based priority queue instead of a sorted list to provide O(log N) to Insert and removeMax operations (worst case)
 - To avoid clearing nodes at each new search, open and closed values are increased by 2
 - I stored search intermediary results into tiles (Node class) to remove the Closed list. 
 
