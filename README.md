@@ -3,8 +3,8 @@
 ###astar: Python Tile-based A* basics
 #####astar.py: pathfinding as a generator
 ######Optimizations
-- I used a heap-based priority queue instead of a sorted list to provide O(log N) to Insert and removeMax operations (worst case)
-- To avoid clearing nodes at each new search, open and closed values are increased by 2
+- I used a heap-based priority queue instead of a sorted list to provide worst case O(log N) to Insert and removeMax operations.
+- To avoid clearing nodes at each new search, open and closed values are increased by 2.
 - I stored search intermediary results into tiles (Node class) to remove the Closed list. 
 
 Note: storing intermediary states has the important consequence to constrain concurrency among a set of agents acting in the same world. Below is the study of various patterns working around that constraint.
