@@ -5,7 +5,9 @@
 #####Pathfinding as a generator
 ######Optimizations
 - I used a heap-based priority queue to provide O(log N) to Insert and removeMax operations (worst case)
-- I stored search intermediary results into tiles (Node class) to remove the Closed list. Note: this has the important consequence to constrain concurrency among a set of agents acting in the same world. Below is the study of various patterns working around that constraint.
+- I stored search intermediary results into tiles (Node class) to remove the Closed list. 
+
+Note: storing intermediary states has the important consequence to constrain concurrency among a set of agents acting in the same world. Below is the study of various patterns working around that constraint.
 
 ######Blocking search pattern 
 The basic usage of A* is to do a blocking search of a solution (path) in a frame. This is exactly what we do here:
