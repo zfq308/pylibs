@@ -6,7 +6,7 @@
 - Manhattan distance used as heuristics.
 - Heap-based priority queue instead of sorted list giving worst case O(log N) to Insert and removeMax operations.
 - Open and Closed values to remove the CLosed list and Conatin operations on the Open list.
-- Increased memory footprint (Node array) holding local search results into tiles to remove the Closed list (see Node class).
+- Increased memory footprint (Node array) holding local search results into tiles to remove the Closed list (Node class).
 - To avoid clearing nodes at each new search, open and closed values are increased by 2.
 - 
 Note: storing intermediary states has the important consequence to constrain concurrency among a set of agents acting in the same world. Below is the study of various patterns working around that constraint.
