@@ -26,8 +26,9 @@ A2: . . . . . . . . . . . . S S S P P P G
 ```
 (Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
 ######Interlaced pattern 
-(i.e. reasoning to use a generator)
-for example with a very simple state machine:
+It is not trye we need to execute search every frame. To simulate human-like behaviours it is reasonnable to accept a latency that emulate the thinking process. However the motions of an agent shouldn't be blocked by the search operation of other agents. 
+The generator approach allows us not to wait a search is completed to execute behaviours of other agents. Granularity of the serach operation is reduced to neighborhood examination which is exactly in a tile-based world 8 fast operations. However since results are stored in the shared world object, searches cannot be concurrent and must be synchronised. 
+Below is an example with a very simple state machine:
 ```
 def move(self):
     if self.state == 0 and not Busy:
@@ -46,6 +47,8 @@ def move(self):
             self.state = 0
 ```
 Note: Busy is a global variable showing example of search synchronization.
+
+Below is another example of diagram showing reduced latencies and constant framerate thanks to generators:
 ```
     + + + + + + + + + + + + + + + +
 A0: S S S P P P G . . S S S P P G .
