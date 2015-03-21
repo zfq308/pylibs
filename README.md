@@ -1,6 +1,6 @@
 # pylibs
 *"oh baby baby, it's a tile world..."*
-###astar: Python Tile-based A* basics
+###astar: Tile-based A* basics
 #####astar.py: pathfinding as a generator
 ######Optimizations
 - Manhattan distance used as heuristics.
