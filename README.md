@@ -4,6 +4,9 @@
 
 #####Pathfinding as a generator
 ######Optimizations
+- We use a heap-based priority queue to provide O(log N) to Insert and removeMax operations (worst case)
+- We store search states into nodes to remove the Closed list. 
+
 ######Blocking search pattern 
 ```
     +         + + +       + +
