@@ -28,7 +28,7 @@ A0: S S S P P P G . . . . . . . . . . . S
 A1: . . . . . . S S S P P P G . . . . . .
 A2: . . . . . . . . . . . . S S S P P P G
 ```
-(Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
+(Legend: '+': frame; 'Ax': agent x; 'S': search operation; 'P': pathing operation; 'G': goal found; '.': stalling)
 ######Interlaced pattern 
 It is not true we need to execute search at every frame. To simulate human-like behaviours it is reasonnable to accept a latency that emulates the thinking process. However the motions of an agent shouldn't be blocked by the search operations of other agents. 
 The generator approach allows us not to wait a search is completed to execute behaviours of other agents. Granularity of the search operation is reduced to neighborhood examination which is exactly 8 fast operations in a tile-based world. However since results are stored in the shared world object, searches cannot be concurrent and must be synchronised. 
@@ -59,7 +59,7 @@ A0: S S S P P P G . . S S S P P G .
 A1: . . . S S S P P P G . . S S S P
 A2: . . . . . . S S S P P P G . . S
 ```
-(Legend: '+': frame; 'Ax':agent x; 'S':Search operation; 'P':pathing operation; 'G':goal found; '.':stalling)
+(Legend: '+': frame; 'Ax': agent x; 'S': search operation; 'P': pathing operation; 'G': goal found; '.': stalling)
 
 Ballpark benchmark: 16 ms / search.
 #####astar_par.py: parallel pathfinding using multiprocessing
