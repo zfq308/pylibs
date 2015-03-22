@@ -21,7 +21,7 @@ while True:
     except StopIteration:
         break
 ```
-It is often the case that a Search operation takes time, and then impact significantly the frame rate. Below is a diagram showing how that approach sucks - assuming search time is constant and pathing is O(1). In reality it is even worst since search time is variable and then that approach doesn't guarantee a constant framerate.
+It is often the case that a search operation takes time, and then impact significantly the frame rate. Below is a diagram showing how that approach sucks - assuming search time is constant and pathing is O(1). In reality it is even worst since search time is variable and then that approach doesn't guarantee a constant framerate.
 ```
     +     + + + +     + + + +     + + + + 
 A0: S S S P P P G . . . . . . . . . . . S 
