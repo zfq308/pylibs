@@ -5,7 +5,7 @@
 ######Optimizations
 - Manhattan distance used as heuristics.
 - Heap-based priority queue instead of sorted list giving worst case O(log N) to Insert and removeMax operations.
-- Open and Closed values to remove the CLosed list and Conatin operations on the Open list.
+- Open and Closed values to remove the Closed list and Conatin operations on the Open list.
 - Increased memory footprint (Node array) holding local search results into tiles (see Node class).
 - To avoid clearing nodes at each new search, open and closed values are increased by 2.
  
@@ -63,7 +63,7 @@ A2: . . . . . . S S S P P P G . . S
 
 Ballpark benchmark: 16 ms / search.
 #####astar_par.py: parallel pathfinding using multiprocessing
-This version uses Python's [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) package to offload the sequential processing of searches to other cores. A producer - consumer pattern is used. Seach are represented by Tasks enqueued in a ```JoinableQueue```. Hence, the main process doesn't need to wait anytime befor to do something else. Results are stored in a managed dictionary where keys are related to tasks. 
+This version uses Python's [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) package to offload the sequential processing of searches to other cores. A producer - consumer pattern is used. Seach are represented by Tasks enqueued in a ```JoinableQueue```. Hence, the main process doesn't need to wait anytime before to do something else. Results are stored in a synchronized dictionary where keys are related to tasks. 
 Again, the world object is shared and no concurrency is possible during a search operation. However, dynamic operations on the world object may require to acquire a lock on that resource to prevent inconsistencies between the world update and search operations. 
 ```
 def move(self):
