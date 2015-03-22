@@ -3,7 +3,7 @@
 ###astar: Tile-based A* basics
 #####astar.py: pathfinding as a generator
 ######Optimizations
-- Manhattan distance used as heuristics.
+- Manhattan distance used as the heuristics.
 - Heap-based priority queue instead of sorted list giving worst case O(log N) to Insert and removeMax operations.
 - Open and Closed values to remove the Closed list and Conatin operations on the Open list.
 - Increased memory footprint (Node array) holding local search results into tiles (see Node class).
