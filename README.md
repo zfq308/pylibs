@@ -5,7 +5,7 @@
 ######Optimizations
 - Manhattan distance used as the heuristics.
 - Heap-based priority queue instead of sorted list giving worst case O(log N) to Insert and removeMax operations.
-- Open and Closed values to remove the Closed list and Conatin operations on the Open list.
+- Open and Closed values to remove the Closed list and search operations on the Open list.
 - Increased memory footprint (Node array) holding local search results into tiles (see Node class).
 - To avoid clearing nodes at each new search, open and closed values are increased by 2.
  
