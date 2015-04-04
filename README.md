@@ -1,6 +1,6 @@
 # pylibs
 *"oh baby baby, it's a tile world..."*
-###astar: Tile-based A* basics
+###1) astar: Tile-based A* basics
 #####astar.py: pathfinding as a generator
 ######Optimizations
 - Manhattan distance used as the heuristics.
@@ -88,5 +88,5 @@ Ballpark benchmark: 100 tasks in 250 ms, 2.5 ms / search.
 #####TODO: Concurrent pathfinding using a worker pool
 Concurrent search operations require to get back the closed list to store intermediary results locally. 
 
-###raycast: Tile-based ray casting
+###2) raycast: Tile-based ray casting
 Two different methods to test visibility in a tile world.
